@@ -37,7 +37,7 @@ jobs:
 
     - name: 🚀 Subir build a EC2 y configurar Nginx
       run: |
-        scp -i key.pem dist.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/dist.zip
+        scp -o StrictHostKeyChecking=no -i key.pem dist.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/dist.zip
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
           # Instalar Nginx si no está
           if ! command -v nginx &> /dev/null
