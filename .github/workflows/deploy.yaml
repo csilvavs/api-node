@@ -30,8 +30,8 @@ jobs:
 
     - name: 🚀 Subir a servidor EC2
       run: |
-    	ssh -i key.pem ubuntu@${{ secrets.EC2_HOST }} "sudo apt update && sudo apt install -y unzip"
-    	scp -i key.pem app.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/app/app.zip
+        ssh -i key.pem ubuntu@${{ secrets.EC2_HOST }} "sudo apt update && sudo apt install -y unzip"
+        scp -i key.pem app.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/app/app.zip
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
         cd ${{ secrets.DEPLOY_PATH }}
         unzip -o app.zip
