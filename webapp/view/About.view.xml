@@ -1,0 +1,27 @@
+<mvc:View
+  controllerName="vs.project3.controller.About"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Page title="Tipo de Cambio">
+    <VBox class="sapUiSmallMargin">
+    <Button text="Consultar SUNAT" press=".onConsultarAPI" />
+
+    <Table items="{Sunat>/}">
+      <columns>
+        <Column><Text text="Fecha" /></Column>
+        <Column><Text text="Compra" /></Column>
+        <Column><Text text="Venta" /></Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <Text text="{Sunat>fecha}" />
+            <Text text="{Sunat>compra}" />
+            <Text text="{Sunat>venta}" />
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </VBox>
+  </Page>
+</mvc:View>

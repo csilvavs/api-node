@@ -1,0 +1,56 @@
+<mvc:View
+    controllerName="vs.project3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page title="Socios de negocio">
+      <VBox>
+        <SearchField
+            id="searchField"
+            width="100%"
+            placeholder="Buscar por nombre..."
+            search=".onSearch"
+        />
+
+        <List
+            id="bpList"
+            items="{
+            path: '/BusinessPartners',
+             parameters: {
+    },
+            sorter: {
+                path: 'CardName',
+                descending: false
+            }
+        }"
+        >
+            <items>
+    <CustomListItem type="Inactive">
+    <HBox
+        width="95%"
+        alignItems="Center"
+        justifyContent="SpaceBetween"
+        class="sapUiTinyMargin"
+    >
+        <VBox width="70%">
+            <Text text="{CardName}" class="sapMText sapMStdListItemTitle" />
+            <Text text="{CardCode}" class="sapMText sapMStdListItemDescription" />
+        </VBox>
+        <Button
+            text="Ver detalle"
+            type="Emphasized"
+            press=".onVerDetalle"
+        />
+    </HBox>
+</CustomListItem>
+
+
+            </items>
+        </List>
+       </VBox>
+        <Button
+            text="Cargar más"
+            press=".onLoadMore"
+        />
+    </Page>
+</mvc:View>

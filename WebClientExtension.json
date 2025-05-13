@@ -1,0 +1,18 @@
+{
+    "tiles": [
+        {
+            "text": "BP Ventura",
+            "subtitle": "Web Client Fiori ",
+            "icon": "sap-icon://customize",
+            "size": "1x1",
+            "dynamicContent": {
+                "repositories": [
+                    {
+                        "converter": "kpiNumber",
+                        "endpoint": "/b1s/v2/PurchaseOrders/$count"
+                    }
+                ]
+            }
+        }
+    ]
+}

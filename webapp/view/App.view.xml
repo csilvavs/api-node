@@ -1,0 +1,32 @@
+<mvc:View controllerName="vs.project3.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    >
+  
+   <Shell>
+    <tnt:ToolPage id="toolPage">
+       <tnt:header>
+        <tnt:ToolHeader>
+          <Button icon="sap-icon://menu2" press=".onToggleMenu" />
+          <Title text="Socio de negocio" level="H1"/>
+        </tnt:ToolHeader>
+      </tnt:header>
+
+      <tnt:sideContent>
+        <tnt:SideNavigation itemSelect=".onItemSelect">
+          <tnt:NavigationList>
+            <tnt:NavigationListItem text="Inicio" key="RouteView1" icon="sap-icon://home"/>
+            <tnt:NavigationListItem text="Acerca de" key="about" icon="sap-icon://hint"/>
+            <tnt:NavigationListItem text="Contacto" key="contact" icon="sap-icon://email"/>
+          </tnt:NavigationList>
+        </tnt:SideNavigation>
+      </tnt:sideContent>
+
+      <tnt:mainContents>
+        <App id="app"/>
+      </tnt:mainContents>
+    </tnt:ToolPage>
+  </Shell>
+</mvc:View>

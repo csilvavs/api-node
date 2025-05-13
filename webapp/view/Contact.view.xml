@@ -1,0 +1,8 @@
+<mvc:View
+  controllerName="vs.project3.controller.Contact"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Page title="Contacto">
+    <Label text="Soy la página Contacto"/>
+  </Page>
+</mvc:View>

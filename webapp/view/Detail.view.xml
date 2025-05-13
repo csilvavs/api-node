@@ -1,0 +1,34 @@
+<mvc:View
+  controllerName="vs.project3.controller.DetailBP"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true">
+
+  <Page title="Detalle de Socio de Negocio" showNavButton="true" navButtonPress=".onNavBack">
+
+    <ObjectHeader
+      title="{CardName}"
+      number="{CardCode}"
+      numberUnit="{CardType}" />
+
+    <VBox class="sapUiSmallMargin">
+      <Label text="RUC/DNI" />
+      <Text text="{FederalTaxID}" />
+
+      <Label text="Celular" />
+      <Input
+        id="inpEmpleado"
+        value="{Phone1}"
+        valueLiveUpdate="true"
+        width="100%" />
+
+      <Button
+        text="Actualizar Empleado"
+        icon="sap-icon://save"
+        type="Emphasized"
+        press=".onActualizarEmpleado"
+        class="sapUiSmallMarginTop" />
+    </VBox>
+
+  </Page>
+</mvc:View>
