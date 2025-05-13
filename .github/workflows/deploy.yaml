@@ -28,12 +28,18 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
         chmod 600 key.pem
 
-    - name: 🚀 Subir a servidor EC2
+    - name: 🚀 Subir a servidor EC2 y desplegar
       run: |
-        scp -i key.pem app.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/app/app.zip
+        scp -o StrictHostKeyChecking=no -i key.pem app.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/app.zip
+
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-        cd ${{ secrets.DEPLOY_PATH }}
-        unzip -o app.zip
-        npm install --production
-        pm2 restart all || pm2 start app.js --name mi-api
+          mkdir -p /home/ubuntu/app
+          cd /home/ubuntu/app
+          mv ../app.zip .
+          unzip -o app.zip
+          npm install --production
+          pm2 start app.js --name mi-api --update-env || pm2 restart mi-api --update-env
         EOF
+
+    - name: 🧹 Limpiar archivos sensibles
+      run: rm -f key.pem
