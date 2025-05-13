@@ -7,5 +7,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor ejecutándose en puerto ${port}`);
+  console.log(`Servidor ejecutándose NOSE en puerto ${port}`);
 });
