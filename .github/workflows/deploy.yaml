@@ -1,8 +1,9 @@
-name: CI/CD Node.js to AWS EC2
+name: 🚀 Deploy SAPUI5 app to AWS EC2
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -17,29 +18,45 @@ jobs:
       with:
         node-version: '18'
 
-    - name: 📦 Instalar dependencias
+    - name: 📦 Instalar dependencias del proyecto
       run: npm install
 
-    - name: 📂 Comprimir archivos
-      run: zip -r app.zip . -x ".git/*" ".github/*" "node_modules/*"
+    - name: 🔧 Instalar UI5 CLI
+      run: npm install --save-dev @ui5/cli
+
+    - name: 🛠️ Ejecutar build UI5
+      run: npx ui5 build --all --clean-dest --dest dist
+
+    - name: 📂 Comprimir build (dist)
+      run: zip -r dist.zip dist
 
     - name: 🔑 Crear llave SSH
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
         chmod 600 key.pem
 
-    - name: 🚀 Subir a servidor EC2 y desplegar
+    - name: 🚀 Subir build a EC2 y configurar Nginx
       run: |
-        scp -o StrictHostKeyChecking=no -i key.pem app.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/app.zip
-
+        scp -i key.pem dist.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/dist.zip
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-          mkdir -p /home/ubuntu/app
-          cd /home/ubuntu/app
-          mv ../app.zip .
-          unzip -o app.zip
-          npm install --production
-          pm2 start app.js --name mi-api --update-env || pm2 restart mi-api --update-env
-        EOF
+          # Instalar Nginx si no está
+          if ! command -v nginx &> /dev/null
+          then
+            echo "⚙️ Instalando Nginx..."
+            sudo apt update
+            sudo apt install -y nginx
+            sudo systemctl enable nginx
+          fi
 
-    - name: 🧹 Limpiar archivos sensibles
-      run: rm -f key.pem
+          echo "🧹 Limpiando contenido anterior..."
+          sudo rm -rf /var/www/html/*
+
+          echo "📦 Descomprimiendo build..."
+          unzip -o /home/ubuntu/dist.zip -d /home/ubuntu/
+
+          echo "📁 Copiando a /var/www/html..."
+          sudo cp -r /home/ubuntu/dist/* /var/www/html/
+
+          echo "🔄 Reiniciando Nginx..."
+          sudo systemctl restart nginx
+        EOF
