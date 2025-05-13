@@ -24,7 +24,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /b1s
-            url: https://192.168.0.51:50000
+            url: https://176.52.133.120:50000
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
