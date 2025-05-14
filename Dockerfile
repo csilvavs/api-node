@@ -1,11 +1,12 @@
-# Imagen base de Nginx
 FROM nginx:alpine
 
-# Elimina los archivos por defecto
+# Limpia contenido por defecto
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copia el contenido del build UI5 al directorio público de Nginx
+# Copia contenido de la app
 COPY dist/ /usr/share/nginx/html/
 
-# Expone el puerto 80 (dentro del contenedor)
+# Copia configuración personalizada de Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
 EXPOSE 80
