@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  sapui5-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sapui5-container
+    ports:
+      - "80:80"  # Puerto del host:puerto del contenedor
+    restart: unless-stopped

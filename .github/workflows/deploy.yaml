@@ -1,4 +1,4 @@
-name: 🚀 Deploy SAPUI5 app to AWS EC2
+name: 🚀 Deploy SAPUI5 app to EC2 with Docker + Docker Compose
 
 on:
   push:
@@ -24,39 +24,28 @@ jobs:
     - name: 🔧 Instalar UI5 CLI
       run: npm install --save-dev @ui5/cli
 
-    - name: 🛠️ Ejecutar build UI5
+    - name: 🛠️ Ejecutar build SAPUI5
       run: npx ui5 build --all --clean-dest --dest dist
 
-    - name: 📂 Comprimir build (dist)
-      run: zip -r dist.zip dist
+    - name: 📂 Crear archivo .tar con proyecto
+      run: tar -czf sapui5-deploy.tar.gz Dockerfile docker-compose.yml dist/
 
-    - name: 🔑 Crear llave SSH
+    - name: 🔑 Crear archivo de llave SSH
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
         chmod 600 key.pem
 
-    - name: 🚀 Subir build a EC2 y configurar Nginx
+    - name: 🚀 Subir y desplegar en EC2 con Docker Compose
       run: |
-        scp -o StrictHostKeyChecking=no -i key.pem dist.zip ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/dist.zip
+        scp -o StrictHostKeyChecking=no -i key.pem sapui5-deploy.tar.gz ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-          # Instalar Nginx si no está
-          if ! command -v nginx &> /dev/null
-          then
-            echo "⚙️ Instalando Nginx..."
-            sudo apt update
-            sudo apt install -y nginx
-            sudo systemctl enable nginx
-          fi
+          echo "📦 Descomprimiendo archivos..."
+          tar -xzf sapui5-deploy.tar.gz -C /home/ubuntu/
 
-          echo "🧹 Limpiando contenido anterior..."
-          sudo rm -rf /var/www/html/*
+          echo "🐳 Creando y ejecutando contenedor con Docker Compose..."
+          cd /home/ubuntu
+          docker-compose down || true
+          docker-compose up --build -d
 
-          echo "📦 Descomprimiendo build..."
-          unzip -o /home/ubuntu/dist.zip -d /home/ubuntu/
-
-          echo "📁 Copiando a /var/www/html..."
-          sudo cp -r /home/ubuntu/dist/* /var/www/html/
-
-          echo "🔄 Reiniciando Nginx..."
-          sudo systemctl restart nginx
+          echo "✅ Despliegue completado. Tu app está disponible en el puerto 80."
         EOF
