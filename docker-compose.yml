@@ -7,5 +7,5 @@ services:
       dockerfile: Dockerfile
     container_name: sapui5-container
     ports:
-      - "80:80"  # Puerto del host:puerto del contenedor
+      - "8081:80"  # Puerto del host:puerto del contenedor
     restart: unless-stopped
