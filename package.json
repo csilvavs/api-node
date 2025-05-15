@@ -17,7 +17,6 @@
     "@typescript-eslint/parser": "^7.1.1",
     "@ui5/cli": "^3.0.0",
     "karma": "^6.4.4",
-    "karma-chrome-launcher": "^3.2.0",
     "karma-cli": "^2.0.0",
     "karma-qunit": "^4.2.1",
     "karma-ui5": "^4.1.0",
@@ -40,7 +39,7 @@
     "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#vsproject3-display\"",
     "int-test": "fiori run --config ./ui5-mock.yaml --open 'test/integration/opaTests.qunit.html'",
     "start-variants-management": "fiori run --open \"preview.html?sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
-    "test": "npm run build && karma start"
+    "test": "fiori run --config ./ui5-mock.yaml --open 'test/unit/unitTests.qunit.html'"
   },
   "sapuxLayer": "CUSTOMER_BASE"
 }
