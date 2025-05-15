@@ -7,7 +7,7 @@ module.exports = function(config) {
     ui5: {
       type: "application",
       configPath: "ui5.yaml",
-      testpage: "/test/unit/unitTests.qunit.html"
+      testpage: "./test/unit/unitTests.qunit.html"
     },
 
     reporters: ["progress"],
