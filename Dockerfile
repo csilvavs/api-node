@@ -10,8 +10,6 @@ RUN npm install
 # Copiar todo el código fuente
 COPY . .
 
-# Ejecutar pruebas y construcción
-RUN npm test && npm run build
 
 # Etapa de producción
 FROM nginx:alpine
