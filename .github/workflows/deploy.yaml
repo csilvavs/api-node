@@ -21,8 +21,8 @@ jobs:
     - name: 📦 Instalar dependencias del proyecto
       run: npm install
 
-    #- name: 🧪 Run Unit Tests
-    #  run: npm test   Ejecuta pruebas QUnit
+    - name: 🧪 Run Unit Tests
+      run: npm test   Ejecuta pruebas QUnit
 
     - name: 🔧 Instalar UI5 CLI
       run: npm install --save-dev @ui5/cli
