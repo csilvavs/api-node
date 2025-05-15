@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: 🧪 Run Unit Tests
-      run: npm test  # Ejecuta pruebas QUnit
+      run: ui5 test --framework QUnit --path test/unit/unitTests.qunit.html  # Ejecuta pruebas QUnit
 
     - name: 🔧 Instalar UI5 CLI
       run: npm install --save-dev @ui5/cli

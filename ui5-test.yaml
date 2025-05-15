@@ -1,0 +1,6 @@
+specVersion: "1.0"
+metadata:
+  name: ui5-app-tests
+framework:
+  name: QUnit
+  path: "test/unit/**/*.test.ts"
