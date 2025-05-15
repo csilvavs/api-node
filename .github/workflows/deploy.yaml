@@ -22,19 +22,17 @@ jobs:
       run: npm install
 
     - name: 🧪 Run Unit Tests
-    #  run: npm test   Ejecuta pruebas QUnit
-    # Inicia el servidor en segundo plano
-      nohup fiori run --config ./ui5-mock.yaml > /dev/null 2>&1 &
-    
-    # Espera a que el servidor esté listo
-      sleep 15
-    
-    # Ejecuta las pruebas (usa curl o wget para verificar)
-      curl -s http://localhost:8080/test/unit/unitTests.qunit.html | grep "tests completed"
-    
-    # Mata el proceso del servidor
-      pkill -f "fiori run"
-
+      run: |
+        nohup fiori run --config ./ui5-mock.yaml > /dev/null 2>&1 &
+      
+        # Espera a que el servidor esté listo
+        sleep 15
+      
+        # Ejecuta las pruebas (usa curl o wget para verificar)
+        curl -s http://localhost:8080/test/unit/unitTests.qunit.html | grep "tests completed"
+      
+        # Mata el proceso del servidor
+        pkill -f "fiori run"
     - name: 🔧 Instalar UI5 CLI
       run: npm install --save-dev @ui5/cli
 
