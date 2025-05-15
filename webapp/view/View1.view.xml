@@ -3,7 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
 >
-    <Page title="Socios de negocio Freestyle">
+    <Page title="Socios de negocio">
       <VBox>
         <SearchField
             id="searchField"

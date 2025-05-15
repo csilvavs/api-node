@@ -39,7 +39,7 @@ export default class DetailBP extends Controller {
     // 3. Enviar cambios usando submitBatch (método correcto para Service Layer)
     oModel.submitBatch("MyUpdateGroup")
         .then(() => {
-            MessageToast.show("Empleado actualizado correctamente");
+            MessageToast.show("Actualizado correctamente");
             //oContext.refresh(); // Refrescar datos desde el servidor
         })
         .catch((err) => {
