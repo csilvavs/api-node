@@ -53,3 +53,7 @@ builder:
         debug: true
         transformModulesToUI5:
           overridesToOverride: true
+resources:
+  configuration:
+    paths:
+      webapp: webapp

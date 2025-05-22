@@ -21,14 +21,14 @@ jobs:
     - name: 📦 Instalar dependencias del proyecto
       run: npm install
 
-   # - name: 🧪 Run Unit Tests
-   #   run: npm test   Ejecuta pruebas QUnit
-
     - name: 🔧 Instalar UI5 CLI
       run: npm install --save-dev @ui5/cli
 
     - name: 🛠️ Ejecutar build SAPUI5
       run: npx ui5 build --all --clean-dest --dest dist
+
+    - name: 🧪 Run Unit Tests
+      run: npm test   Ejecuta pruebas QUnit
 
     - name: 📦 Empaquetar proyecto para Docker
       run: tar -czf sapui5-deploy.tar.gz Dockerfile docker-compose.yml nginx.conf dist/

@@ -10,5 +10,5 @@ QUnit.test("Suma de dos números positivos", function(assert) {
     
     
     // Assert
-    assert.strictEqual(8, 8, "5 + 3 debe ser 8");
+    assert.strictEqual(7, 8, "5 + 3 debe ser 8");
 });
