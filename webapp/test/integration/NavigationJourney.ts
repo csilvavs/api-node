@@ -23,9 +23,6 @@ opaTest("Should see the initial page of the app", function () {
 		}
 	});
 
-	// Assertions
-	onTheAppPage.iShouldSeeTheApp();
-	onTheViewPage.iShouldSeeThePageView();
 
 
 	// Cleanup

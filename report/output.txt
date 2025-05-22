@@ -1,28 +1,33 @@
 ui5-test-runner@5.7.1
-Server running at http://192.168.0.104:8085/                                                                          
+Server running at http://192.168.0.104:63576/                                                        
 
 00:01 │ Probing browser instantiation command
 ──────┴──────────────────────────────────────
-puppeteer@24.9.0 in C:\Users\csilva\Music\api-node\node_modules\puppeteer                                             
+puppeteer@24.9.0 in C:\Users\csilva\Music\api-node\node_modules\puppeteer                            
 Browser capabilities :
  ├─ modules
- │  └─  puppeteer                                                                                                     
+ │  └─  puppeteer                                                                                    
  ├─ screenshot: ".png"
  ├─ scripts: true
  ├─ parallel: true
  └─ traces: ["console","network"]
 
-00:08 │ Probing urls
+00:07 │ Probing urls
 ──────┴─────────────
-00:08 >> http://localhost:8080/test/testsuite.qunit.html                                                 [vDOUTCY$Tfg]
-00:13 << http://localhost:8080/test/testsuite.qunit.html                                                 [vDOUTCY$Tfg]
+00:07 >> http://localhost:8080/test/testsuite.qunit.html                                [vDOUTCY$Tfg]
+00:11 << http://localhost:8080/test/testsuite.qunit.html                                [vDOUTCY$Tfg]
 
-00:13 │ Executing test pages
+00:11 │ Executing test pages
 ──────┴─────────────────────
-00:13 >> http://localhost:8080/test/unit/unitTests.qunit.html                                            [le6KDh_XnDk]
-00:13 >> http://localhost:8080/test/integration/opaTests.qunit.html                                      [0$DpdM9YXHo]
-00:31 << http://localhost:8080/test/unit/unitTests.qunit.html                                    (00:02) [le6KDh_XnDk]
-00:51 << http://localhost:8080/test/integration/opaTests.qunit.html                              (00:21) [0$DpdM9YXHo]
+00:11 >> http://localhost:8080/test/unit/unitTests.qunit.html                           [le6KDh_XnDk]
+00:29 << http://localhost:8080/test/unit/unitTests.qunit.html                   (00:01) [le6KDh_XnDk]
 
-00:51 │ Generating reports
+00:29 │ Generating reports
 ──────┴───────────────────
+┌───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│http://localhost:8080/test/unit/unitTests.qunit.html                                  🧪      1/1  │
+└───────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+00:30 │ Reports generated
+──────┴──────────────────

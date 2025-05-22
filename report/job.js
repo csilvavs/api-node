@@ -3,7 +3,7 @@ module.exports = {
   "browserArgs": [],
   "cwd": "C:\\Users\\csilva\\Music\\api-node",
   "config": "ui5-test-runner.json",
-  "port": 8085,
+  "port": 63576,
   "reportDir": "C:\\Users\\csilva\\Music\\api-node\\report",
   "pageTimeout": 0,
   "failFast": false,
@@ -74,19 +74,18 @@ module.exports = {
   "browserModules": {
     "puppeteer": "C:\\Users\\csilva\\Music\\api-node\\node_modules\\puppeteer"
   },
-  "start": "2025-05-22T14:29:11.962Z",
-  "failed": true,
+  "start": "2025-05-22T14:39:58.516Z",
+  "failed": false,
   "testPageUrls": [
-    "http://localhost:8080/test/unit/unitTests.qunit.html",
-    "http://localhost:8080/test/integration/opaTests.qunit.html"
+    "http://localhost:8080/test/unit/unitTests.qunit.html"
   ],
   "qunitPages": {
     "http://localhost:8080/test/unit/unitTests.qunit.html": {
       "id": "le6KDh_XnDk",
-      "start": "2025-05-22T14:29:33.633Z",
+      "start": "2025-05-22T14:40:19.641Z",
       "isOpa": false,
-      "failed": 1,
-      "passed": 0,
+      "failed": 0,
+      "passed": 1,
       "count": 1,
       "modules": [
         {
@@ -96,98 +95,43 @@ module.exports = {
               "name": "Suma de dos números positivos",
               "testId": "d46fa869",
               "skip": false,
-              "start": "2025-05-22T14:29:33.729Z",
+              "start": "2025-05-22T14:40:19.694Z",
               "logs": [
                 {
-                  "result": false,
+                  "result": true,
                   "message": "5 + 3 debe ser 8",
-                  "actual": 7,
+                  "actual": 8,
                   "expected": 8,
                   "negative": false,
                   "runtime": 1,
-                  "todo": false,
-                  "source": "    at Object.<anonymous> (http://localhost:8080/test/unit/controller/View1Page.controller.js:10:10)\n    at Object.i (http://localhost:8080/resources/sap/ui/thirdparty/sinon.js:220:476)\n    at Object.e (http://localhost:8080/resources/sap/ui/thirdparty/sinon.js:220:794)\n    at n (http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:13504)\n    at G.e [as run] (http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:13327)\n    at http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:16109"
+                  "todo": false
                 }
               ],
-              "screenshot": "d46fa869.png",
-              "end": "2025-05-22T14:29:34.104Z",
+              "end": "2025-05-22T14:40:19.809Z",
               "report": {
                 "skipped": false,
                 "todo": false,
-                "failed": 1,
-                "passed": 0,
+                "failed": 0,
+                "passed": 1,
                 "total": 1,
-                "runtime": 4,
+                "runtime": 2,
                 "source": "    at QUnit.test (http://localhost:8080/resources/sap/ui/thirdparty/sinon-qunit.js:34:356)\n    at http://localhost:8080/test/unit/controller/View1Page.controller.js:4:7"
               }
             }
           ]
         }
       ],
-      "end": "2025-05-22T14:29:34.838Z",
+      "end": "2025-05-22T14:40:20.386Z",
       "report": {
-        "passed": 0,
-        "failed": 1,
+        "passed": 1,
+        "failed": 0,
         "total": 1,
-        "runtime": 11
-      }
-    },
-    "http://localhost:8080/test/integration/opaTests.qunit.html": {
-      "id": "0$DpdM9YXHo",
-      "start": "2025-05-22T14:29:34.673Z",
-      "isOpa": true,
-      "failed": 1,
-      "passed": 0,
-      "count": 1,
-      "modules": [
-        {
-          "name": "Navigation Journey",
-          "tests": [
-            {
-              "name": "Should see the initial page of the app",
-              "testId": "804ee59d",
-              "skip": false,
-              "start": "2025-05-22T14:29:34.777Z",
-              "logs": [
-                {
-                  "result": false,
-                  "message": "Did not find the App view\nOpa timeout after 15 seconds\nThis is what Opa logged:\nThere are 1 open XHRs and 0 open FakeXHRs.\nXHR: URL: '/b1s/v2/$metadata?sap-language=EN' Method: 'GET' Async: 'true'\nStack:     at Object.e [as resolveStackTrace] (http://localhost:8080/resources/sap/ui/test/autowaiter/_utils.js:6:117)\n    at XMLHttpRequest.d (http://localhost:8080/resources/sap/ui/test/autowaiter/_XHRWaiter.js:6:1318)\n    at XMLHttpRequest.send (http://localhost:8080/resources/sap/ui/test/autowaiter/_XHRWaiter.js:6:971)\n    at Object.send (http://localhost:8080/resources/sap-ui-core.js:1238:87185)\n    at jQuery.ajax (http://localhost:8080/resources/sap-ui-core.js:1238:83420)\n    at jQuery.ajax (http://localhost:8080/resources/sap-ui-core.js:1192:4408)\n    at i (http://localhost:8080/resources/sap/ui/core/library-preload.js:2364:651)\n    at http://localhost:8080/resources/sap/ui/core/library-preload.js:2364:1123\n    at o (http://localhost:8080/resources/sap/ui/test/autowaiter/_promiseWaiter.js:6:2277)\n    at new Promise (<anonymous>) -  sap.ui.test.autowaiter._XHRWaiter#hasPending\nCallstack:\n    at AppPage.iShouldSeeTheApp (http://localhost:8080/test/integration/pages/AppPage.js:10:19)\n    at Object.<anonymous> (http://localhost:8080/test/integration/NavigationJourney.js:26:18)\n    at Object.<anonymous> (http://localhost:8080/resources/sap/ui/test/opaQunit.js:6:1967)\n    at n (http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:13504)\n    at G.e [as run] (http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:13327)\n    at http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:16109\n    at Object.F [as advance] (http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:9930)",
-                  "actual": false,
-                  "expected": true,
-                  "negative": false,
-                  "runtime": 19273,
-                  "todo": false,
-                  "source": "    at e (http://localhost:8080/resources/sap/ui/thirdparty/qunit-2.js:11:21830)\n    at http://localhost:8080/resources/sap/ui/test/opaQunit.js:6:1015\n    at Object.<anonymous> (http://localhost:8080/resources/sap/ui/test/opaQunit.js:6:2117)\n    at u (http://localhost:8080/resources/sap-ui-core.js:1238:25639)\n    at Object.fireWith [as rejectWith] (http://localhost:8080/resources/sap-ui-core.js:1238:26474)\n    at t.reject (http://localhost:8080/resources/sap-ui-core.js:1192:10108)",
-                  "screenshot": "804ee59d-19273.png"
-                }
-              ],
-              "screenshot": "804ee59d.png",
-              "end": "2025-05-22T14:29:54.499Z",
-              "report": {
-                "skipped": false,
-                "todo": false,
-                "failed": 1,
-                "passed": 0,
-                "total": 1,
-                "runtime": 19338,
-                "source": "    at r (http://localhost:8080/resources/sap/ui/test/opaQunit.js:6:1790)\n    at o (http://localhost:8080/resources/sap/ui/test/opaQunit.js:6:902)\n    at http://localhost:8080/test/integration/NavigationJourney.js:16:3\n    at c (http://localhost:8080/resources/sap-ui-core.js:10:16943)"
-              }
-            }
-          ]
-        }
-      ],
-      "end": "2025-05-22T14:29:55.145Z",
-      "report": {
-        "passed": 0,
-        "failed": 1,
-        "total": 1,
-        "runtime": 19346
+        "runtime": 8
       }
     }
   },
-  "end": "2025-05-22T14:29:55.654Z",
+  "end": "2025-05-22T14:40:20.811Z",
   "testPageHashes": [
-    "le6KDh_XnDk",
-    "0$DpdM9YXHo"
+    "le6KDh_XnDk"
   ]
 }

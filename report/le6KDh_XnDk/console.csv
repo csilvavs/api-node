@@ -1,3 +1,3 @@
 timestamp	type	text
-1747924172048	info	2025-05-22 09:29:32 Device API logging initialized - DEVICE
-1747924172687	error	Failed to load resource: the server responded with a status of 404 (Not Found)
+1747924816928	info	2025-05-22 09:40:16 Device API logging initialized - DEVICE
+1747924818817	error	Failed to load resource: the server responded with a status of 404 (Not Found)
