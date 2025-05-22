@@ -28,7 +28,7 @@ jobs:
       run: npx ui5 build --all --clean-dest --dest dist
 
     - name: 🧪 Run Unit Tests
-      run: npm test   Ejecuta pruebas QUnit
+      run: npm test   
 
     - name: 📦 Empaquetar proyecto para Docker
       run: tar -czf sapui5-deploy.tar.gz Dockerfile docker-compose.yml nginx.conf dist/
