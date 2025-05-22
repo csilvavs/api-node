@@ -27,6 +27,7 @@
     "karma-typescript-preprocessor": "^0.4.0",
     "karma-ui5": "^4.1.0",
     "puppeteer": "^24.9.0",
+    "start-server-and-test": "^2.0.12",
     "typescript": "^5.1.6",
     "ui5-middleware-simpleproxy": "^3.4.1",
     "ui5-test-runner": "^5.7.1",
@@ -51,8 +52,8 @@
     "start-variants-management": "fiori run --open \"preview.html?sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
     "unit-test": "fiori run --config ./ui5-mock.yaml --open 'test/unit/unitTests.qunit.html'",
     "test:run": "ui5-test-runner --url http://localhost:8080/test/testsuite.qunit.html --port 8085",
-    "test": "start-server-and-test serve http://localhost:8080 test:run" 
-     },
+    "test": "start-server-and-test serve http://localhost:8080 test:run"
+  },
   "sapuxLayer": "CUSTOMER_BASE",
   "dependencies": {
     "@openui5/sap.m": "^1.136.0",
