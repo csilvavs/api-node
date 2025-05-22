@@ -53,7 +53,7 @@
     "unit-test": "fiori run --config ./ui5-mock.yaml --open 'test/unit/unitTests.qunit.html'",
     "test:run": "ui5-test-runner --url http://localhost:8080/test/testsuite.qunit.html --port 8085",
     "test": "start-server-and-test serve http://localhost:8080 test:run"
-  },
+     },
   "sapuxLayer": "CUSTOMER_BASE",
   "dependencies": {
     "@openui5/sap.m": "^1.136.0",
